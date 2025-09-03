@@ -93,33 +93,25 @@
 <!-- ✅ SCRIPT -->
 <script>
   const hamburger = document.getElementById("hamburger");
-const navbar = document.getElementById("navbar");
-const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+  const navbar = document.getElementById("navbar");
+  const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
 
-// Hamburger toggle
-hamburger.addEventListener("click", () => {
-  navbar.classList.toggle("active");
-  hamburger.classList.toggle("active");
-});
-
-// Dropdown toggle for mobile
-dropdownToggles.forEach(toggle => {
-  toggle.addEventListener("click", (e) => {
-    if (window.innerWidth <= 992) {
-      e.preventDefault(); // prevent jumping
-      const parent = toggle.parentElement;
-
-      // Close other open dropdowns
-      document.querySelectorAll(".dropdown.active").forEach(d => {
-        if (d !== parent) d.classList.remove("active");
-      });
-
-      // Toggle this one
-      parent.classList.toggle("active");
-    }
+  // Hamburger toggle
+  hamburger.addEventListener("click", () => {
+    navbar.classList.toggle("active");
+    hamburger.classList.toggle("active");
   });
-});
 
+  // Dropdown toggle for mobile
+  dropdownToggles.forEach(toggle => {
+    toggle.addEventListener("click", (e) => {
+      if (window.innerWidth <= 992) {
+        e.preventDefault(); // stop default link jump
+        const parent = toggle.parentElement;
+        parent.classList.toggle("active");
+      }
+    });
+  });
 </script>
 
    <!-- ✅ Carousel -->
@@ -155,7 +147,7 @@ dropdownToggles.forEach(toggle => {
       </div>
       <div class="indicators" id="indicators"></div>
     </div>
-  </header>
+
   <!-- ===== Services Section ===== -->
 <section class="services">
   <div class="container">
