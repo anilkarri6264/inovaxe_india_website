@@ -34,74 +34,119 @@
   </div>
 
   <!-- Header/Navbar -->
-  <header>
-    <div class="container nav">
-      <!-- Logo -->
-      <div class="brand">
-        <img src="./images/image-removebg-preview.png" alt="Inovaxe_Logo" />
-      </div>
-
-      <!-- Hamburger -->
-      <div class="hamburger" id="hamburger">
-        <i class="fas fa-bars"></i>
-      </div>
-
-      <!-- Navbar -->
-      <nav class="navbar" id="navbar">
-        <ul class="nav-menu">
-          <li><a href="#home">Home</a></li>
-
-          <li class="dropdown">
-            <a href="#company">Company ▾</a>
-            <ul class="dropdown-menu">
-              <li><a href="#blog">Blog</a></li>
-              <li><a href="#about">About Inovaxe</a></li>
-              <li><a href="#solutions">Solutions</a></li>
-              <li><a href="#news">News</a></li>
-            </ul>
-          </li>
-
-          <li class="dropdown">
-            <a href="#products">Products ▾</a>
-            <ul class="dropdown-menu">
-              <li><a href="#smt">SMT Reel Storage</a></li>
-              <li><a href="#msd">MSD / Stencil Solutions</a></li>
-              <li><a href="#modi">MODI Incoming Inspection</a></li>
-              <li><a href="#xray">VisiConsult X-Ray Counter</a></li>
-              <li><a href="#inventory">Inventory Software</a></li>
-              <li><a href="#custom">Custom Solutions</a></li>
-            </ul>
-          </li>
-
-          <li><a href="#representatives">Representatives</a></li>
-          <li><a href="#contact">Contact Us</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-
-          <li class="dropdown">
-            <a href="#">Language ▾</a>
-            <ul class="dropdown-menu">
-              <li><a href="#">English</a></li>
-              <li><a href="#">Español</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
+<!-- ✅ HEADER -->
+<header>
+  <div class="container nav">
+    <!-- Logo -->
+    <div class="brand">
+      <img src="./images/image-removebg-preview.png" alt="Inovaxe_Logo" />
     </div>
-  </header>
+
+    <!-- Hamburger -->
+    <div class="hamburger" id="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+      <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+
+        <li class="dropdown">
+          <a href="#company" class="dropdown-toggle">Company</a>
+          <ul class="dropdown-menu">
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#about">About Inovaxe</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#news">News</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#products" class="dropdown-toggle">Products</a>
+          <ul class="dropdown-menu">
+            <li><a href="#smt">SMT Reel Storage</a></li>
+            <li><a href="#msd">MSD / Stencil Solutions</a></li>
+            <li><a href="#modi">MODI Incoming Inspection</a></li>
+            <li><a href="#xray">VisiConsult X-Ray Counter</a></li>
+            <li><a href="#inventory">Inventory Software</a></li>
+            <li><a href="#custom">Custom Solutions</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#representatives">Representatives</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Language</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">English</a></li>
+            <li><a href="#">Español</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ✅ SCRIPT -->
+<script>
+  const hamburger = document.getElementById("hamburger");
+const navbar = document.getElementById("navbar");
+const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+
+// Hamburger toggle
+hamburger.addEventListener("click", () => {
+  navbar.classList.toggle("active");
+  hamburger.classList.toggle("active");
+});
+
+// Dropdown toggle for mobile
+dropdownToggles.forEach(toggle => {
+  toggle.addEventListener("click", (e) => {
+    if (window.innerWidth <= 992) {
+      e.preventDefault(); // prevent jumping
+      const parent = toggle.parentElement;
+
+      // Close other open dropdowns
+      document.querySelectorAll(".dropdown.active").forEach(d => {
+        if (d !== parent) d.classList.remove("active");
+      });
+
+      // Toggle this one
+      parent.classList.toggle("active");
+    }
+  });
+});
+
+</script>
+
    <!-- ✅ Carousel -->
     <div class="carousel" id="carousel">
       <div class="slides">
         <div class="slide active">
           <img src="./images/Inovaxe-Custom-Solutions-HP-RGB-1.jpg" alt="Slide 1">
-          <div class="caption">Smart Storage Solutions</div>
+          <div class="caption">
+            <h2>Smart Storage Solutions</h2>
+            <p>Optimize Material Handling & Inventory Accuracy</p>
+          <button class="btn btn-primary rounded-pill px-4">Learn More</button>
+          </div>
         </div>
         <div class="slide">
           <img src="./images/Inovaxe-IA-Series-Header-JPEG.jpg" alt="Slide 2">
-          <div class="caption">Seamless ERP & MES Integration</div>
+          <div class="caption">
+            <h2>Seamless ERP & MES Integration</h2>
+            <p>Real-Time Inventory Management</p>
+          <button class="btn btn-primary rounded-pill px-4">Learn More</button>
+          </div>
         </div>
         <div class="slide">
           <img src="./images/Inovaxe-MSD-Header-HP.jpg" alt="Slide 3">
-          <div class="caption">Scalable & Customizable Systems</div>
+          <div class="caption">
+            <h2>Scalable & Customizable Systems</h2>
+            <p>Solutions Tailored to Your Needs</p>
+          <button class="btn btn-primary rounded-pill px-4">Learn More</button>          </div>
         </div>
       </div>
       <div class="controls">
@@ -122,7 +167,7 @@
         Our award-winning products optimize our customers’ material flows in order 
         to reduce unnecessary labor, increase machine up time, and streamline supply chain operations.
       </p>
-      <button class="btn btn-primary rounded-3"><a href="#" class="btn">Read More</a></button>
+ <a href="#" class="btn">Read More</a>
     </div>
 
     <div class="service-box">
@@ -133,7 +178,7 @@
         and inventory management solution that addresses business issues 
         that directly impact bottom-line revenue as well as minimize business risk.
       </p>
-      <button class="btn btn-primary rounded-3"><a href="#" class="btn">Read More</a></button>
+      <a href="#" class="btn">Read More</a>
     </div>
 
     <div class="service-box">
@@ -144,7 +189,7 @@
         components, boxes, stencils, MSDs, along with custom solutions, 
         Inovaxe is your one-stop-shop for material handling needs.
       </p>
-      <button class="btn btn-primary rounded-3 p-2"><a href="#" class="btn">Read More</a></button>
+      <a href="#" class="btn">Read More</a>
     </div>
   </div>
 </section>
@@ -432,12 +477,7 @@
 
 
    <script>
-    // Hamburger toggle
-    const hamburger = document.getElementById("hamburger");
-    const navbar = document.getElementById("navbar");
-    hamburger.addEventListener("click", () => {
-      navbar.classList.toggle("active");
-    });
+
 
     // Carousel
     let slides = document.querySelectorAll(".slide");
@@ -471,15 +511,7 @@
   </script>
 
   <!-- JS for Hamburger -->
-  <script>
-    const hamburger = document.getElementById("hamburger");
-    const navbar = document.getElementById("navbar");
 
-    hamburger.addEventListener("click", () => {
-      navbar.classList.toggle("active");
-      hamburger.classList.toggle("active");
-    });
-  </script>
 
 </body>
 </html>
